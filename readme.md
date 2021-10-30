@@ -15,4 +15,6 @@ Since I do not have a physical device to test, I tested on the AVD itself so I a
 
 For the list items, I simply added them back to back. There should have been some proper functionality to handle large data. It could have been handled asynchronously as well.
 
+I did not get the time to validate the input nor to properly handle edge cases and errors. I should have also logged msgs properly.
+
 Thank You.
