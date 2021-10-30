@@ -17,4 +17,8 @@ For the list items, I simply added them back to back. There should have been som
 
 I did not get the time to validate the input nor to properly handle edge cases and errors. I should have also logged msgs properly.
 
+ScreenShot :-
+
+![Screen Shot](Screenshot_1635575665.png?raw=true "ScreenShot")
+
 Thank You.
