@@ -28,7 +28,7 @@ import java.util.ArrayList;
 
 public class MovieList extends AppCompatActivity {
 LinearLayout listView;
-String imageBaseURL = "https://image.tmdb.org/t/p/w500";
+String imageBaseURL = "https://image.tmdb.org/t/p/w500";//could be stored in res values
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +37,7 @@ String imageBaseURL = "https://image.tmdb.org/t/p/w500";
         populateList();
     }
 
+    //Could be used using async
     public String loadJSONFromAsset() {
         String json = null;
         try {
@@ -46,13 +47,14 @@ String imageBaseURL = "https://image.tmdb.org/t/p/w500";
             is.read(buffer);
             is.close();
             json = new String(buffer, "UTF-8");
-        } catch (Exception ex) {
+        } catch (Exception ex) { //different exceptions could be handled differently and loggers should be used to log errors and msgs properly
             ex.printStackTrace();
             return null;
         }
         return json;
     }
 
+    //Could be used using async like load image task in a separate file
     public void populateList() {
         ArrayList<MovieItem> movieItemArrayList  = new ArrayList<>();
         try {
@@ -81,5 +83,10 @@ String imageBaseURL = "https://image.tmdb.org/t/p/w500";
         ImageView poster = view.findViewById(R.id.movieImage);
         String imageURL = imageBaseURL + movieItem.poster_path;
         new ImageLoadTask(imageURL, poster).execute();
+        /*
+        This will have view.onclicklistener
+        When someone clicks, they will be redirected to a new page along with the object details
+        That page will initialise with the movie item details
+         */
     }
 }
